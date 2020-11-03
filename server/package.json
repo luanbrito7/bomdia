@@ -1,0 +1,25 @@
+{
+  "name": "bomdia",
+  "version": "1.0.0",
+  "description": "A web application that generate \"good morning\" pictures.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luanbrito7/bomdia.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luanbrito7/bomdia/issues"
+  },
+  "homepage": "https://github.com/luanbrito7/bomdia#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6"
+  }
+}
