@@ -16,6 +16,10 @@ class Api {
             }
         });
     }
+
+    post(data, url = "") {
+        return this.client.post(url, data);
+    }
 }
 
 let api = new Api()

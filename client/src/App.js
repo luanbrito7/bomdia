@@ -4,7 +4,12 @@ import api from './api'
 
 function App() {
   const requestAPI = async function () {
-    const { data } = await api.get();
+    const { data } = await api.post({
+      type: "dia",
+      season: "verao",
+      theme: "natal",
+      color: "vermelho"
+    })
     console.log(data)
   }
   requestAPI()
