@@ -1,2 +1,2 @@
 # bomdia
-A web application that generate "good morning" pictures.
+A web application that generates "good morning" pictures.
