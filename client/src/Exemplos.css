@@ -1,0 +1,30 @@
+/*Exemplos*/
+#Exemplos{
+    background: #fff;
+    padding: 50px 15px 50px;
+    margin-top: 30px;
+}
+
+#Exemplos h3{
+    margin: 0 auto;
+    padding: 0 0 20px 0;
+    max-width: 1000px;
+    font-size: 32px;
+    line-height: 1.2;
+    color: #212121;
+    text-align: center;
+    font-weight: 700;
+}
+
+.container-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-row img{
+    width: 500px;
+    height: 500px;
+    padding: 1rem;
+}
