@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const cors = require('cors')
-const generateImage = require('./core')
+const getMaterial = require('./material')
 const port = 8080
 
 app.use(bodyParser.json());
@@ -10,18 +10,19 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors())
 
 app.get('/', (req, res) => {
-  generateImage()
   res.status(200).send('Hello World!')
 })
 
-app.post('/', (req, res) => {
+app.post('/', async (req, res) => {
+  let material = await getMaterial(req.body)
   let {
-    type,
     season,
     theme,
-    color
-  } = req.body
-  console.log(type,season,theme,color)
+    background
+  } = material
+  console.log(season)
+  console.log(theme)
+  console.log(background)
   res.status(200).send('Hello Post!')
 })
 
