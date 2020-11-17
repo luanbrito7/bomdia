@@ -14,16 +14,16 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', async (req, res) => {
-  let material = await getMaterial(req.body)
-  let {
-    season,
-    theme,
-    background
-  } = material
-  console.log(season)
-  console.log(theme)
-  console.log(background)
-  res.status(200).send('Hello Post!')
+  const [ phrase, material ] = await Promise.all([
+    getPhrase(req.body),
+    getMaterial(req.body)
+  ]);
+  console.log(phrase)
+  console.log(material)
+  res.status(200).send({
+    phrase,
+    material
+  })
 })
 
 app.listen(port, () => {

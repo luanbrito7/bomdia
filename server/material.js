@@ -3,7 +3,6 @@ const customSearch = google.customsearch("v1")
 const googleSearchCredentials = require("./bomdia-77f9789a563d.json")
 
 async function getMaterial({
-  type,
   season,
   theme,
   color
