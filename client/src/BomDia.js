@@ -1,8 +1,15 @@
-import React, { Component } from 'react'
+import React, { Component , useState } from 'react'
+
 import './BomDia.css'
 
-export class BomDia extends Component {
-    render() {
+export default  function BomDia(){
+        const [estacao, setEstacao] = useState("primavera");
+        const [horario, setHorario] = useState("bom-dia");
+        const [tema, setTema] = useState("anonovo");
+        const [cor, setCor] = useState("amarelo");
+        function baixarImagem(){
+            console.log("baixar imagem")
+        }
         return (
             <div>
                 <div className="container-column">
@@ -20,7 +27,7 @@ export class BomDia extends Component {
                         <div id="bom-dia-form-data">
                             <div className="bom-dia-field select-type">
                                 <span>Horário:</span>
-                                <select name="" id="sel" className="bom-dia-input-data">
+                                <select value={horario} onChange={(e) => {setHorario(e.target.value)}} name="" id="sel" className="bom-dia-input-data">
                                     <option value="bom-dia">bom dia</option>
                                     <option value="boa-tarde">boa tarde</option>
                                     <option value="boa-noite">boa noite</option>
@@ -29,7 +36,7 @@ export class BomDia extends Component {
                             </div>
                             <div className="bom-dia-field select-type">
                                 <span>Estação:</span>
-                                <select name="" id="sel" className="bom-dia-input-data">
+                                <select value={estacao} onChange={(e) => {setEstacao(e.target.value)}} name="" id="sel" className="bom-dia-input-data">
                                     <option value="primavera">primavera</option>
                                     <option value="inverno">inverno</option>
                                     <option value="outono">outono</option>
@@ -38,7 +45,7 @@ export class BomDia extends Component {
                             </div>
                             <div className="bom-dia-field select-type">
                                 <span>Tema:</span>
-                                <select name="" id="sel" className="bom-dia-input-data">
+                                <select value={tema} onChange={(e) => {setTema(e.target.value)}} name="" id="sel" className="bom-dia-input-data">
                                     <option value="ano-novo">ano-novo</option>
                                     <option value="carnaval">carnaval</option>
                                     <option value="sao-joao">sao joao</option>
@@ -47,7 +54,7 @@ export class BomDia extends Component {
                             </div>
                             <div className="bom-dia-field select-type">
                                 <span>Cor Predominante:</span>
-                                <select name="" id="sel" className="bom-dia-input-data">
+                                <select value={cor} onChange={(e) => {setCor(e.target.value)}} name="" id="sel" className="bom-dia-input-data">
                                     <option value="amarelo">amarelo</option>
                                     <option value="azul">azul</option>
                                     <option value="verde">verde</option>
@@ -55,7 +62,8 @@ export class BomDia extends Component {
                                 </select>
                             </div>
                             <div className="bom-dia-block">
-                                <div id="save" className="save-img">Baixar Imagem</div>
+                                <div onClick={() => {console.log("chamar api")}} id="save" className="save-img">Gerar Imagem</div>
+                                <div onClick={() => {baixarImagem()}} id="save" className="save-img">Baixar Imagem</div>
                             </div>
                         </div>
                         <div className="bom-dia-share">
@@ -66,10 +74,8 @@ export class BomDia extends Component {
                     </div>
                 </section>
             </div>
-           
-
         )
-    }
 }
 
-export default BomDia
+
+
