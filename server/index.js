@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const cors = require('cors')
 const getMaterial = require('./material')
+const getPhrase = require('./phrase')
 const port = 8080
 
 app.use(bodyParser.json());
