@@ -17,9 +17,17 @@ async function getMaterial({
 
   if (!backgroundColors.includes(color)) color = getRandomParam("color")
 
-  let seasonUrl = await googleSearchReturnImagesLinks(getRandomParam("query", seasonQueries))
-  let backgroundUrl = await googleSearchReturnImagesLinks(backgroundQuery, color)
-  let themeUrl = await googleSearchReturnImagesLinks(getRandomParam("query", themeQueries))
+  let seasonUrl = await googleSearchReturnImagesLinks({
+    query: getRandomParam("query", seasonQueries)
+  })
+  let backgroundUrl = await googleSearchReturnImagesLinks({
+    query: backgroundQuery,
+    dominantColor: color,
+    background: true
+  })
+  let themeUrl = await googleSearchReturnImagesLinks({
+    query: getRandomParam("query", themeQueries)
+  })
   
   return {
     season: seasonUrl,
@@ -28,18 +36,36 @@ async function getMaterial({
   }
 }
 
-async function googleSearchReturnImagesLinks (query, dominantColor) {
-  const response = await customSearch.cse.list({
-    auth: googleSearchCredentials.apiKey,
-    cx: googleSearchCredentials.searchEngineId,
-    safe: "active",
-    searchType: "image",
-    fileType: "jpg|png",
-    imgDominantColor: dominantColor,
-    rights: 'cc_publicdomain',
-    q: query,
-    num: 1
-  })
+async function googleSearchReturnImagesLinks ({
+  query, dominantColor, background
+}) {
+  let response = {}
+  if (background) {
+    response = await customSearch.cse.list({
+      auth: googleSearchCredentials.apiKey,
+      cx: googleSearchCredentials.searchEngineId,
+      safe: "active",
+      searchType: "image",
+      fileType: "jpg|png",
+      imgDominantColor: dominantColor,
+      imgSize: "huge",
+      rights: 'cc_publicdomain',
+      q: query,
+      num: 1
+    })
+  } else {
+    response = await customSearch.cse.list({
+      auth: googleSearchCredentials.apiKey,
+      cx: googleSearchCredentials.searchEngineId,
+      safe: "active",
+      searchType: "image",
+      fileType: "jpg|png",
+      imgType: "clipart",
+      rights: 'cc_publicdomain',
+      q: query,
+      num: 1
+    })
+  }
   return response.data.items[0].link
 }
 
@@ -72,11 +98,11 @@ function getBackgroundQuery(season) {
 function getThemeQueries(theme) {
   switch (theme) {
     case 'carnaval':
-      return ["sombrinha frevo", "pitu", "corote", "skol"]
+      return ["sombrinha frevo", "pitu", "corote", "skol lata"]
     case 'natal':
       return ["gorro papai noel", "árvore da natal", "estrela", "anjinho"]
     case 'pascoa':
-      return ["coelho da páscoa", "ovos páscoa", "cruz páscoa"]
+      return ["coelho da páscoa", "ovos páscoa", "cruz"]
     case 'ano novo':
       return ["fogos de artifício"]
   }
