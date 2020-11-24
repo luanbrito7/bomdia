@@ -4,6 +4,7 @@ const app = express()
 const cors = require('cors')
 const getMaterial = require('./material')
 const getPhrase = require('./phrase')
+const createImage = require('./compose')
 const port = 8080
 
 app.use(bodyParser.json());
@@ -21,9 +22,14 @@ app.post('/', async (req, res) => {
   ]);
   console.log(phrase)
   console.log(material)
+  
+  const image = await createImage(material.background, material.season, material.theme, phrase)
+  console.log(image)
+  
   res.status(200).send({
     phrase,
-    material
+    material,
+    image
   })
 })
 
