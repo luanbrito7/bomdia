@@ -5,10 +5,16 @@ const Credentials = require("./bomdia-77f9789a563d.json")
 
 //Receive URL of background, URL of sticker 1, URL of sticker 2 and the phrase, returns image mounted in base64
 async function createImage(backgroundUrl, sticker1Url, sticker2Url, phrase){
-	var backgroundBase64 = await imageUrlToImageBase64(backgroundUrl); //b64
-	var sticker1Base64 = await removeBg(sticker1Url); //b64
-	var sticker2Base64 = await removeBg(sticker2Url); //b64
+	// var backgroundBase64 = await imageUrlToImageBase64(backgroundUrl); //b64
+	// var sticker1Base64 = await removeBg(sticker1Url); //b64
+	// var sticker2Base64 = await removeBg(sticker2Url); //b64
+	
+	var backgroundBase64
+	var sticker1Base64
+	var sticker2Base64
+
 	var createdImage = await composeImages(backgroundBase64,sticker1Base64,sticker2Base64,phrase) //b64
+
 	return createdImage
 }
 
@@ -70,3 +76,5 @@ async function removeBg(url){
 	var b = await axios(config)
 	return b.data.data.result_b64
 }
+
+module.exports = createImage;
