@@ -28,7 +28,8 @@ app.post('/', async (req, res) => {
   
   res.status(200).send({
     phrase,
-    material
+    material,
+    image
   })
 })
 
