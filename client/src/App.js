@@ -15,7 +15,7 @@ function App() {
     })
     console.log(data)
   }
-  requestAPI()
+  // requestAPI()
   return (
     <div >
       <Header/>
