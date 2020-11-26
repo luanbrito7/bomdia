@@ -118,7 +118,11 @@ export default function BomDia() {
               <div
                 onClick={() => {
                   setLoading(true);
-                  fetch("http://localhost:8080", {
+                  fetch(
+                    // LOCAL
+                    "http://localhost:8080", {
+                    // HEROKU
+                    // "https://bomdia-server-app.herokuapp.com/", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
