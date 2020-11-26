@@ -3,7 +3,10 @@ import axios from 'axios'
 class Api {
     constructor() {
         this.client = axios.create({
-			baseURL: 'http://localhost:8080/',
+            // LOCAL:
+            // baseURL: 'http://localhost:8080/',
+            // HEROKU: 
+            // baseURL: 'https://bomdia-server-app.herokuapp.com/',
 			"Content_Type": "application/json"
         })
     }

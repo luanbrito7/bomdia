@@ -1,6 +1,7 @@
 const google = require('googleapis').google
 const customSearch = google.customsearch("v1")
-const googleSearchCredentials = require("./bomdia-77f9789a563d.json")
+// LOCAL:
+const googleSearchCredentials = require("../bomdia-77f9789a563d.json")
 
 async function getMaterial({
   season,
@@ -42,6 +43,10 @@ async function googleSearchReturnImagesLinks ({
   let response = {}
   if (background) {
     response = await customSearch.cse.list({
+      // HEROKU:
+      // auth: process.env.apiKey,
+      // cx: process.env.searchEngineId,
+      // LOCAL:
       auth: googleSearchCredentials.apiKey,
       cx: googleSearchCredentials.searchEngineId,
       safe: "active",
@@ -55,6 +60,10 @@ async function googleSearchReturnImagesLinks ({
     })
   } else {
     response = await customSearch.cse.list({
+      // HEROKU:
+      // auth: process.env.apiKey,
+      // cx: process.env.searchEngineId,
+      // LOCAL:
       auth: googleSearchCredentials.apiKey,
       cx: googleSearchCredentials.searchEngineId,
       safe: "active",

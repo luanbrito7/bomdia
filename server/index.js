@@ -2,17 +2,17 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const cors = require('cors')
-const getMaterial = require('./material')
-const getPhrase = require('./phrase')
-const createImage = require('./compose')
-const port = 8080
+const getMaterial = require('./service/material')
+const getPhrase = require('./service/phrase')
+const createImage = require('./service/compose')
+const port = process.env.PORT || 8080
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true})); 
 app.use(cors())
 
 app.get('/', (req, res) => {
-  res.status(200).send('Hello World!')
+  res.status(200).send('The server is READY for use!')
 })
 
 app.post('/', async (req, res) => {
