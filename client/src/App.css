@@ -2,4 +2,7 @@ html {
     scroll-behavior: smooth;
 }
 
-
+body{
+    font-family: "Comic Sans MS", sans-serif;
+    background-color: #eeeeee;
+}

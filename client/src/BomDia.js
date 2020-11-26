@@ -3,6 +3,7 @@ import { saveAs } from "file-saver";
 import { triggerBase64Download } from "react-base64-downloader";
 import "./BomDia.css";
 import Loader from "react-loader-spinner";
+import spark from './assets/spark.gif';
 
 export default function BomDia() {
   const [estacao, setEstacao] = useState("verao");
@@ -16,9 +17,21 @@ export default function BomDia() {
   }
   return (
     <div>
+      <div className="marquee-container">
+        <img width="100%" src="https://i.imgur.com/i6hvJjx.gif"></img>
+        <marquee width="100%">
+          <div>
+            <img className="spark" src={spark} alt="sparkless"></img>
+            <p id="marquee-text">Compartilhe uma mensagem no seu ZapZap!</p>
+            <img className="spark" src={spark} alt="sparkless"></img>
+          </div>
+        </marquee>
+        <img width="100%" src="https://i.imgur.com/i6hvJjx.gif"></img>
+      </div>
       <div className="container-column">
-        <h1>Gerar de Imagens Bom dia - imagens matinais</h1>
-        <h2>Crie imagens temporárias de forma rápida e simples</h2>
+        <h2>Gerar de Imagens Bom dia</h2>
+        <h3>imagens matinais</h3>
+        <h3>Crie imagens temporárias de forma rápida e simples</h3>
       </div>
       <section className="bom-dia">
         <div className="bom-dia-area">
@@ -118,7 +131,11 @@ export default function BomDia() {
               <div
                 onClick={() => {
                   setLoading(true);
-                  fetch("http://localhost:8080", {
+                  fetch(
+                    // LOCAL
+                    "http://localhost:8080", {
+                    // HEROKU
+                    // "https://bomdia-server-app.herokuapp.com/", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({

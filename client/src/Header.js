@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import logo from './sol.PNG';
+import logo from './assets/sun.gif';
 import './Header.css'
 
 export class Header extends Component {
@@ -7,11 +7,12 @@ export class Header extends Component {
         return (
             <div className="container">
                 <header id="hd">
+                    <img className="sol" src={logo} alt="sol"></img>
                     <ul>
-                        <img className="sol" src={logo} alt="sol"></img>
                         <a href="#oqueeh">O que é Bom Dia?</a>
                         <a href="#Exemplos">Exemplos</a>
                     </ul>
+                    <img className="sol" src={logo} alt="sol"></img>
                 </header>
             </div>
         )

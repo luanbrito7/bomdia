@@ -1,7 +1,44 @@
-h1{
+.marquee-container {
+    display: flex;
+    height: 40px;
+    flex-direction: column;
+}
+.marquee-container marquee {
+    background-color: yellow;
+    height: fit-content;
+
+    font-style: italic;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
+    color: red;
+    margin: 0px;
+}
+
+.marquee-container marquee div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.marquee-container .spark {
+    height: 40px;
+    margin: 0px 10px;
+}
+
+h2{
     font-size: 48px;
     line-height: 1.2;
     padding: 1.5rem;
+    animation: blink-animation 1s steps(5, start) infinite;
+    -webkit-animation: blink-animation 1s steps(5, start) infinite;
+    text-align: center;
+    color: orange;
+}
+
+h3 {
+    margin: 10px;
+    text-align: center;
 }
 
 h3:hover{
@@ -19,13 +56,14 @@ h3:hover{
 
 .bom-dia{
     padding: 20px 0 0;
-    max-width: 1120px;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
-    align-items: stretch;
+    align-items: center;
+    justify-content: space-around;
     position: relative;
-    
+    flex-wrap: wrap-reverse;
 }
 
 .bom-dia-area{
@@ -36,6 +74,7 @@ h3:hover{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 2%;
 }
 
 #cv2{
@@ -47,8 +86,8 @@ h3:hover{
     border: 2px solid #37d60f;
     box-shadow: 0 0 8px 1px #adadad;
     flex: 0 1 440px;
-    margin-left: 26px;
     position: relative;
+    margin: 2%;
 }
 
 .bom-dia-nav{
@@ -136,11 +175,13 @@ span{
 .bom-dia-block{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     margin: 10px auto 50px;
     width: 100%;
     float: none;
     text-align: center;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 /* botao de baixar imagem */
@@ -149,7 +190,7 @@ span{
     min-width: 180px;
     border: 1px solid #c6d400;
     border-radius: 60px;
-    margin: 0;
+    margin: 2%;
     padding: 11px 16px;
     height: 47px;
     font-size: 18px;
@@ -191,3 +232,14 @@ span{
     width: 18px;
     color: #3ddee4;
 }
+
+@keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+  }
+  @-webkit-keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+  }

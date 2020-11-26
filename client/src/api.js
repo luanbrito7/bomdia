@@ -4,7 +4,7 @@ class Api {
     constructor() {
         this.client = axios.create({
             // LOCAL:
-            // baseURL: 'http://localhost:8080/',
+            baseURL: 'http://localhost:8080/',
             // HEROKU: 
             // baseURL: 'https://bomdia-server-app.herokuapp.com/',
 			"Content_Type": "application/json"

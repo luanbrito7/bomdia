@@ -4,15 +4,8 @@
     margin: 0;
 }
 
-body{
-    font-family: 'Roboto', sans-serif;
-    text-decoration: none;
-}
-
 ul > a{
-    text-decoration: none;
-    font-size: 16px;
-    color: #333;
+    font-size: 18px;
     padding: 1rem;
 }
 
@@ -21,8 +14,8 @@ ul > a:hover{
 }
 
 .sol{
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
 }
 
 .container{
@@ -30,11 +23,12 @@ ul > a:hover{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid #ece9e9;
 }
 
 #hd{
     display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 1rem;
     font-weight: 700;
     
