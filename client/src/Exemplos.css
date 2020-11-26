@@ -1,6 +1,7 @@
 /*Exemplos*/
 #Exemplos{
-    background: #fff;
+    background-image: url('./assets/WCnxKj.gif');
+    background-size: cover;
     padding: 50px 15px 50px;
     margin-top: 30px;
 }
@@ -11,7 +12,7 @@
     max-width: 1000px;
     font-size: 32px;
     line-height: 1.2;
-    color: #212121;
+    color: white;
     text-align: center;
     font-weight: 700;
 }
@@ -21,10 +22,10 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .container-row img{
-    width: 500px;
-    height: 500px;
+    width: 40%;
     padding: 1rem;
 }
